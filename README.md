@@ -11,3 +11,85 @@ Login to the site by sending a POST to teradps.io/api/login with 'email' and 'pa
 API Link: teradps.io/api/que
 
 Send a POST request to the API with a JSON object including information on your encounter. Below is a list of the current properties that are recognized:
+
+## Main properties (required)
+
+##### `name`
+- _String_
+- Character's name.
+
+##### `clas`
+- _String_
+- Character's class. (ex. Berserker, Slayer, Lancer)
+
+##### `boss`
+- _String_
+- Boss of the encounter. (ex. Hrathgol, Shandra Manaya, Nightmare Desolarus)
+
+##### `server`
+- _String_
+- Character's server. (ex. Mount Tyrannas, Tempest Reach)
+
+##### `number`
+- _Number_
+- Final encounter DPS.
+
+## Support Classes
+
+##### `supLan`
+- _Boolean_
+- Lancer support was present?
+
+##### `supBraw`
+- _Boolean_
+- Brawler support was present?
+
+##### `supWar`
+- _Boolean_
+- Warrior support was present?
+
+##### `supArch`
+- _Boolean_
+- Archer support was present?
+
+##### `supPri`
+- _Boolean_
+- Priest support was present?
+
+##### `supMys`
+- _Boolean_
+- Mystic support was present?
+
+## Consumables
+
+##### `charm`
+- _Boolean_
+- Charms
+
+##### `scroll`
+- _Boolean_
+- Scroll
+
+##### `nostrum`
+- _Boolean_
+- Nostrum
+
+##### `brave`
+- _Boolean_
+- Bravery Potion / Canephora Potion
+
+##### `partyFood`
+- _Boolean_
+- Party-wide Food (Gold food)
+
+##### `lamb`
+- _Boolean_
+- Lamb Bulgogi
+
+##### `noc`
+- _Boolean_
+- Noctenium Infusion
+
+##### `heaven`
+- _Boolean_
+- Heaven's Elixir
