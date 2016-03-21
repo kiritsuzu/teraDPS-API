@@ -10,7 +10,21 @@ Login to the site by sending a POST to teradps.io/api/login with 'email' and 'pa
 # Step 3: Submit encounter through the API.
 API Link: teradps.io/api/que
 
-Send a POST request to the API with a JSON object including information on your encounter. Below is a list of the current properties that are recognized:
+Send a POST request to the API with a JSON object including the following information on your encounter as properties on the object.
+In the POST request, make sure to add your authToken and userId as headers:
+
+Ex.
+authToken is 8PBcPuHHhRK_57tk3Ryc9IP_XtOIRXh_4-j9A9QUBxu
+userId is crdChGPz6PndHvMYh
+
+Add these headers in your request:
+
+```
+X-Auth-Token: 8PBcPuHHhRK_57tk3Ryc9IP_XtOIRXh_4-j9A9QUBxu
+X-User-Id: crdChGPz6PndHvMYh
+```
+
+Below is a list of the properties that are currently recognized:
 
 ## Main properties (required)
 
