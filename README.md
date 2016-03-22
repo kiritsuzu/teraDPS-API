@@ -29,6 +29,16 @@ The general structure of the JSON request object should be as follows:
 Encounter Base {
   areaId: Number,
   bossId: Number,
+  debuffsUptime: {
+    traverseCut: Percent String,
+    combativeStrike: Percent String,
+    debilitate: Percent String,
+    jackhammer: Percent String,
+    ensnaringTrap: Percent String,
+    tripleNemesis: Percent String,
+    contagion: Percent String,
+    volleyOfCurses: Percent String
+  },
   supportClassesPresent: {
     lancer: Boolean,
     warrior: Boolean,
@@ -43,21 +53,26 @@ Encounter Base {
       playerDPS: Number,
       playerClass: String,
       playerTotalDamage: Number,
-      playerTotalDamagePercent: Number + '%',
-      playerAverageCritRate: Number + '%',
+      playerTotalDamagePercent: Percent String,
+      playerAverageCritRate: Percent String,
       skillLog: [
         {
           skillName: 'String',
           skillHits: 'Number',
           skillTotalDamage: 'Number',
-          skillCritRate: Number + '%',
-          skillDamagePercent: Number + '%',
+          skillCritRate: Percent String,
+          skillDamagePercent: Percent String,
           skillHighestCrit: Number,
           skillLowestCrit: Number,
           skillAverageCrit: Number,
           skillAverageWhite: Number
         }
       ],
+      buffsUptime: {
+        energyStars: Percent String,
+        guardianShout: Percent String,
+        titanicWrath: Percent String
+      },
       consumables: {
         charms: Boolean,
         nostrum: Boolean,
@@ -85,6 +100,17 @@ Below is the list of the object properties:
 ##### `bossId`
 - _Number_
 - The boss id in reference to database.
+
+##### `debuffsUptime`
+- _Object_
+- Each property represents an endurance debuff with % uptime on boss.
+- Example: 
+```
+{
+debilitate: '80%',
+traverseCut: '60%'
+}
+```
 
 ##### `supportClasses`
 - _Object_
@@ -150,6 +176,18 @@ These properties will be on each party member Object.
 ##### `skillLog`
 - _Array of Objects_
 - An array containing Objects that represent the skills used in the log.
+
+##### `buffsUptime`
+- _Object_
+- Each property represents a consumable whether it was used or not, value of true/false.
+- Example:
+```
+{
+energyStars: '90%',
+titanicWrath: '40%',
+guardianShout: '20%'
+}
+```
 
 ##### `consumables`
 - _Object_
