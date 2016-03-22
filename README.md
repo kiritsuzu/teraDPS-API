@@ -29,24 +29,6 @@ The general structure of the JSON request object should be as follows:
 Encounter Base {
   areaId: Number,
   bossId: Number,
-  debuffsUptime: {
-    traverseCut: Percent String,
-    combativeStrike: Percent String,
-    debilitate: Percent String,
-    jackhammer: Percent String,
-    ensnaringTrap: Percent String,
-    tripleNemesis: Percent String,
-    contagion: Percent String,
-    volleyOfCurses: Percent String
-  },
-  supportClassesPresent: {
-    lancer: Boolean,
-    warrior: Boolean,
-    brawler: Boolean,
-    archer: Boolean,
-    priest: Boolean,
-    mystic: Boolean
-  }
   members: [
     {
       playerName: String,
@@ -57,7 +39,7 @@ Encounter Base {
       playerAverageCritRate: Percent String,
       skillLog: [
         {
-          skillName: 'String',
+          skillId: 'Number',
           skillHits: 'Number',
           skillTotalDamage: 'Number',
           skillCritRate: Percent String,
@@ -68,22 +50,9 @@ Encounter Base {
           skillAverageWhite: Number
         }
       ],
-      buffsUptime: {
-        energyStars: Percent String,
-        guardianShout: Percent String,
-        titanicWrath: Percent String
-      },
-      consumables: {
-        charms: Boolean,
-        nostrum: Boolean,
-        scroll: Boolean,
-        bravery: Boolean,
-        canephora: Boolean,
-        noctenium: Boolean,
-        partyFood: Boolean,
-        lamb: Boolean,
-        heavensElixir: Boolean
-      }
+      buffsUptime: [
+        {buffId: Percent String}
+      ]
     }
   ]
 }
@@ -100,30 +69,6 @@ Below is the list of the object properties:
 ##### `bossId`
 - _Number_
 - The boss id in reference to database.
-
-##### `debuffsUptime`
-- _Object_
-- Each property represents an endurance debuff with % uptime on boss.
-- Example: 
-```
-{
-  debilitate: '80%',
-  traverseCut: '60%'
-}
-```
-
-##### `supportClasses`
-- _Object_
-- Each property represents a support class whether they were in the party or not, value of true/false.
-- Example: 
-```
-{
-  lancer: true,
-  warrior: false,
-  priest: true,
-  mystic: false
-}
-```
 
 ##### `members`
 - _Array of Objects_
@@ -178,20 +123,8 @@ These properties will be on each party member Object.
 - An array containing Objects that represent the skills used in the log.
 
 ##### `buffsUptime`
-- _Object_
-- Each property represents a consumable whether it was used or not, value of true/false.
-- Example:
-```
-{
-  energyStars: '90%',
-  titanicWrath: '40%',
-  guardianShout: '20%'
-}
-```
-
-##### `consumables`
-- _Object_
-- Each property represents a consumable whether it was used or not, value of true/false.
+- _Array of Objects_
+- Each object represents a buff, debuff, or consumable (by Id) and it's respective uptime in %.
 
 ## Skill Log Properties
 These properties will be on each skillLog Object.
@@ -232,42 +165,3 @@ These properties will be on each skillLog Object.
 ##### `skillAverageWhite`
 - _Number_
 - Average white.
-
-
-## Consumables Properties
-
-##### `charm`
-- _Boolean_
-- Charms
-
-##### `scroll`
-- _Boolean_
-- Scroll
-
-##### `nostrum`
-- _Boolean_
-- Nostrum
-
-##### `bravery`
-- _Boolean_
-- Bravery Potion
-
-##### `canephora`
-- _Boolean_
-- Canephora Potion
-
-##### `partyFood`
-- _Boolean_
-- Party-wide Food (Gold food)
-
-##### `lamb`
-- _Boolean_
-- Lamb Bulgogi
-
-##### `noctenium`
-- _Boolean_
-- Noctenium Infusion
-
-##### `heavensElixir`
-- _Boolean_
-- Heaven's Elixir
