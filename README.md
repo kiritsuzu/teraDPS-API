@@ -29,6 +29,7 @@ The general structure of the JSON request object should be as follows:
 Encounter Base {
   areaId: Number,
   bossId: Number,
+  serverId: Number,
   members: [
     {
       playerName: String,
@@ -69,6 +70,10 @@ Below is the list of the object properties:
 ##### `bossId`
 - _Number_
 - The boss id in reference to database.
+
+##### `serverId`
+- _Number_
+- The server id in reference to database.
 
 ##### `members`
 - _Array of Objects_
@@ -129,10 +134,9 @@ These properties will be on each party member Object.
 ## Skill Log Properties
 These properties will be on each skillLog Object.
 
-##### `skillName` (Maybe skillId? For multi-lingual purposes)
-- if skillName: _String_
+##### `skillId`
 - if skillId: _Number_
-- Name/ID of Skill.
+- ID of Skill.
 
 ##### `skillHits`
 - _Number_
