@@ -24,57 +24,179 @@ X-Auth-Token: 8PBcPuHHhRK_57tk3Ryc9IP_XtOIRXh_4-j9A9QUBxu
 X-User-Id: crdChGPz6PndHvMYh
 ```
 
+The general structure of the JSON request object should be as follows:
+```
+Encounter Base {
+  areaId: Number,
+  bossId: Number,
+  supportClassesPresent: {
+    lancer: Boolean,
+    warrior: Boolean,
+    brawler: Boolean,
+    archer: Boolean,
+    priest: Boolean,
+    mystic: Boolean
+  }
+  members: [
+    {
+      playerName: String,
+      playerDPS: Number,
+      playerClass: String,
+      playerTotalDamage: Number,
+      playerTotalDamagePercent: Number + '%',
+      playerAverageCritRate: Number + '%',
+      skillLog: [
+        {
+          skillName: 'String',
+          skillHits: 'Number',
+          skillTotalDamage: 'Number',
+          skillCritRate: Number + '%',
+          skillDamagePercent: Number + '%',
+          skillHighestCrit: Number,
+          skillLowestCrit: Number,
+          skillAverageCrit: Number,
+          skillAverageWhite: Number
+        }
+      ],
+      consumables: {
+        charms: Boolean,
+        nostrum: Boolean,
+        scroll: Boolean,
+        bravery: Boolean,
+        canephora: Boolean,
+        noctenium: Boolean,
+        partyFood: Boolean,
+        lamb: Boolean,
+        heavensElixir: Boolean
+      }
+    }
+  ]
+}
+```
+
 Below is a list of the properties that are currently recognized:
 
 ## Main properties (required)
 
-##### `name`
-- _String_
-- Character's name.
-
-##### `clas`
-- _String_
-- Character's class. (ex. Berserker, Slayer, Lancer)
-
-##### `boss`
-- _String_
-- Boss of the encounter. (ex. Hrathgol, Shandra Manaya, Nightmare Desolarus)
-
-##### `server`
-- _String_
-- Character's server. (ex. Mount Tyrannas, Tempest Reach)
-
-##### `number`
+##### `areaId`
 - _Number_
-- Final encounter DPS.
+- The area id in reference to database.
 
-## Support Classes
+##### `bossId`
+- _Number_
+- The boss id in reference to database.
 
-##### `supLan`
-- _Boolean_
-- Lancer support was present?
+##### `supportClasses`
+- _Object_
+- Each property represents a support class whether they were in the party or not, value of true/false.
+- Example: 
+```
+{
+lancer: true,
+warrior: false,
+priest: true,
+mystic: false
+}
+```
 
-##### `supBraw`
-- _Boolean_
-- Brawler support was present?
+##### `members`
+- _Array of Objects_
+- An array containing Objects that represent the members of the party.
+- Example:
+```
+[
+  {
+  playerName: One,
+  playerDPS: 400,
+  playerClass: Slayer,
+  ...
+  },
+  {
+  playerName: Two,
+  playerDPS: 10,
+  playerClass: Priest,
+  ...
+  }
+]
+```
 
-##### `supWar`
-- _Boolean_
-- Warrior support was present?
+## Member Properties
+These properties will be on each party member Object.
 
-##### `supArch`
-- _Boolean_
-- Archer support was present?
+##### `playerName`
+- _String_
+- Name of player.
 
-##### `supPri`
-- _Boolean_
-- Priest support was present?
+##### `playerDPS`
+- _Number_
+- DPS recorded at the end of the encounter.
 
-##### `supMys`
-- _Boolean_
-- Mystic support was present?
+##### `playerClass`
+- _String_
+- Class of Player.
 
-## Consumables
+##### `playerTotalDamage`
+- _Number_
+- Total damage by player, as determined by skill log.
+
+##### `playerTotalDamagePercent`
+- _Number %_
+- % of total damage done by player.
+
+##### `playerTotalDamagePercent`
+- _Number %_
+- Average crit rate across all skills.
+
+##### `skillLog`
+- _Array of Objects_
+- An array containing Objects that represent the skills used in the log.
+
+##### `consumables`
+- _Object_
+- Each property represents a consumable whether it was used or not, value of true/false.
+
+## Skill Log Properties
+These properties will be on each skillLog Object.
+
+##### `skillName` (Maybe skillId? For multi-lingual purposes)
+- if skillName: _String_
+- if skillId: _Number_
+- Name/ID of Skill.
+
+##### `skillHits`
+- _Number_
+- Number of successful hits.
+
+##### `skillTotalDamage`
+- _Number_
+- Total damage dealt by skill.
+
+##### `skillCritRate`
+- _Number %_
+- Overall % Crit Rate of skill.
+
+##### `skillDamagePercent`
+- _Number %_
+- % of total damage.
+
+##### `skillHighestCrit`
+- _Number_
+- Highest crit.
+
+##### `skillLowestCrit`
+- _Number_
+- Lowest crit.
+
+##### `skillAverageCrit`
+- _Number_
+- Average crit.
+
+##### `skillAverageWhite`
+- _Number_
+- Average white.
+
+
+## Consumables Properties
 
 ##### `charm`
 - _Boolean_
@@ -88,9 +210,13 @@ Below is a list of the properties that are currently recognized:
 - _Boolean_
 - Nostrum
 
-##### `brave`
+##### `bravery`
 - _Boolean_
-- Bravery Potion / Canephora Potion
+- Bravery Potion
+
+##### `canephora`
+- _Boolean_
+- Canephora Potion
 
 ##### `partyFood`
 - _Boolean_
@@ -100,10 +226,10 @@ Below is a list of the properties that are currently recognized:
 - _Boolean_
 - Lamb Bulgogi
 
-##### `noc`
+##### `noctenium`
 - _Boolean_
 - Noctenium Infusion
 
-##### `heaven`
+##### `heavensElixir`
 - _Boolean_
 - Heaven's Elixir
