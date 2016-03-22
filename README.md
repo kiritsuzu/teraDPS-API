@@ -29,7 +29,7 @@ The general structure of the JSON request object should be as follows:
 Encounter Base {
   areaId: Number,
   bossId: Number,
-  serverId: Number,
+  server: String,
   members: [
     {
       playerName: String,
@@ -71,9 +71,9 @@ Below is the list of the object properties:
 - _Number_
 - The boss id in reference to database.
 
-##### `serverId`
-- _Number_
-- The server id in reference to database.
+##### `server`
+- _String_
+- The name of the server in which the encounter took place.
 
 ##### `members`
 - _Array of Objects_
