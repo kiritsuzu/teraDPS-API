@@ -40,9 +40,9 @@ Encounter Base {
       playerAverageCritRate: Percent String,
       skillLog: [
         {
-          skillId: 'Number',
-          skillHits: 'Number',
-          skillTotalDamage: 'Number',
+          skillId: Number,
+          skillHits: Number,
+          skillTotalDamage: Number,
           skillCritRate: Percent String,
           skillDamagePercent: Percent String,
           skillHighestCrit: Number,
