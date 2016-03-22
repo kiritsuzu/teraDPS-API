@@ -107,8 +107,8 @@ Below is the list of the object properties:
 - Example: 
 ```
 {
-debilitate: '80%',
-traverseCut: '60%'
+  debilitate: '80%',
+  traverseCut: '60%'
 }
 ```
 
@@ -118,10 +118,10 @@ traverseCut: '60%'
 - Example: 
 ```
 {
-lancer: true,
-warrior: false,
-priest: true,
-mystic: false
+  lancer: true,
+  warrior: false,
+  priest: true,
+  mystic: false
 }
 ```
 
@@ -132,16 +132,16 @@ mystic: false
 ```
 [
   {
-  playerName: One,
-  playerDPS: 400,
-  playerClass: Slayer,
-  ...
+    playerName: One,
+    playerDPS: 400,
+    playerClass: Slayer,
+    ...
   },
   {
-  playerName: Two,
-  playerDPS: 10,
-  playerClass: Priest,
-  ...
+    playerName: Two,
+    playerDPS: 10,
+    playerClass: Priest,
+    ...
   }
 ]
 ```
@@ -183,9 +183,9 @@ These properties will be on each party member Object.
 - Example:
 ```
 {
-energyStars: '90%',
-titanicWrath: '40%',
-guardianShout: '20%'
+  energyStars: '90%',
+  titanicWrath: '40%',
+  guardianShout: '20%'
 }
 ```
 
