@@ -74,9 +74,9 @@ Encounter Base {
 }
 ```
 
-Below is a list of the properties that are currently recognized:
+Below is the list of the object properties:
 
-## Main properties (required)
+## Main Encounter properties
 
 ##### `areaId`
 - _Number_
