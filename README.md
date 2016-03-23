@@ -30,6 +30,7 @@ Encounter Base {
   areaId: Number,
   bossId: Number,
   server: String,
+  fightDuration: Number,
   debuffUptime: [
     {skillId: Percent String}
   ],
@@ -41,6 +42,7 @@ Encounter Base {
       playerTotalDamage: Number,
       playerTotalDamagePercent: Percent String,
       playerAverageCritRate: Percent String,
+      playerDeaths: Number,
       skillLog: [
         {
           skillId: Number,
@@ -73,6 +75,10 @@ Below is the list of the object properties:
 ##### `bossId`
 - _Number_
 - The boss id in reference to database.
+
+##### `fightDuration`
+- _Number_
+- Duration of the encounter (measured in seconds?).
 
 ##### `server`
 - _String_
@@ -129,6 +135,10 @@ These properties will be on each party member Object.
 ##### `playerTotalDamagePercent`
 - _Number %_
 - Average crit rate across all skills.
+
+##### `playerDeaths`
+- _Number_
+- Number of times player died in the encounter.
 
 ##### `skillLog`
 - _Array of Objects_
