@@ -30,6 +30,9 @@ Encounter Base {
   areaId: Number,
   bossId: Number,
   server: String,
+  debuffUptime: [
+    { skillId: Percent String }
+  ],
   members: [
     {
       playerName: String,
@@ -51,7 +54,7 @@ Encounter Base {
           skillAverageWhite: Number
         }
       ],
-      buffsUptime: [
+      buffUptime: [
         {buffId: Percent String}
       ]
     }
@@ -74,6 +77,10 @@ Below is the list of the object properties:
 ##### `server`
 - _String_
 - The name of the server in which the encounter took place.
+
+##### `debuffUptime`
+- _Array of Objects_
+- Each object represents a debuff (by SkillId) and it's respective uptime in %.
 
 ##### `members`
 - _Array of Objects_
@@ -127,7 +134,7 @@ These properties will be on each party member Object.
 - _Array of Objects_
 - An array containing Objects that represent the skills used in the log.
 
-##### `buffsUptime`
+##### `buffUptime`
 - _Array of Objects_
 - Each object represents a buff, debuff, or consumable (by Id) and it's respective uptime in %.
 
