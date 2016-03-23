@@ -31,7 +31,7 @@ Encounter Base {
   bossId: Number,
   server: String,
   debuffUptime: [
-    { skillId: Percent String }
+    {skillId: Percent String}
   ],
   members: [
     {
