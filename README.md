@@ -29,10 +29,14 @@ The general structure of the JSON request object should be as follows:
 Encounter Base {
   areaId: Number,
   bossId: Number,
+  bossHp: Number,
   server: String,
   fightDuration: Number,
+  enrageUptime: Number,
+  meterName: String,
+  meterVersion: Number,
   debuffUptime: [
-    {skillId: Percent String}
+    {skillId: Number}
   ],
   members: [
     {
@@ -40,16 +44,16 @@ Encounter Base {
       playerDPS: Number,
       playerClass: String,
       playerTotalDamage: Number,
-      playerTotalDamagePercent: Percent String,
-      playerAverageCritRate: Percent String,
+      playerTotalDamagePercent: Number,
+      playerAverageCritRate: Number,
       playerDeaths: Number,
       skillLog: [
         {
           skillId: Number,
           skillHits: Number,
           skillTotalDamage: Number,
-          skillCritRate: Percent String,
-          skillDamagePercent: Percent String,
+          skillCritRate: Number,
+          skillDamagePercent: Number,
           skillHighestCrit: Number,
           skillLowestCrit: Number,
           skillAverageCrit: Number,
@@ -57,7 +61,7 @@ Encounter Base {
         }
       ],
       buffUptime: [
-        {buffId: Percent String}
+        {buffId: Number}
       ]
     }
   ]
@@ -76,13 +80,29 @@ Below is the list of the object properties:
 - _Number_
 - The boss id in reference to database.
 
+##### `bossHp`
+- _Number_
+- Maximum HP of boss in the encounter. Used to check legitimacy of encounter on server end.
+
 ##### `fightDuration`
 - _Number_
-- Duration of the encounter (measured in seconds?).
+- Duration of the encounter.
+ 
+##### `enrageUptime`
+- _Number_
+- Uptime on boss's Enraged status throughout fight.
 
 ##### `server`
 - _String_
 - The name of the server in which the encounter took place.
+
+##### `meterName`
+- _String_
+- The name of the meter the encounter was submitted from. i.e. CasualMeter / ShinraMeter
+
+##### `meterVersion`
+- _Number_
+- The version of the meter.
 
 ##### `debuffUptime`
 - _Array of Objects_
