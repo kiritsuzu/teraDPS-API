@@ -32,10 +32,6 @@ Encounter Base {
   fightDuration: Number,
   meterName: String,
   meterVersion: Number,
-  mainPlayerName: String,
-  mainPlayerClass: String,
-  mainPlayerServer: String,
-  mainPlayerDps: Number,
   partyDps: Number,
   debuffUptime: [
     {skillId: Number},
@@ -46,6 +42,7 @@ Encounter Base {
       playerName: String,
       playerDPS: Number,
       playerClass: String,
+      playerServer: String,
       playerTotalDamage: Number,
       playerTotalDamagePercent: Number,
       playerAverageCritRate: Number,
@@ -99,22 +96,6 @@ Below is the list of the object properties:
 - _Number_
 - The version of the meter.
 
-##### `mainPlayerName`
-- _String_
-- The name of the player on the record.
-
-##### `mainPlayerClass`
-- _String_
-- The class of the player on the record.
-
-##### `mainPlayerServer`
-- _String_
-- The name of the server of the player on the record.
-
-##### `mainPlayerDps`
-- _Number_
-- The DPS of the player on the record.
-
 ##### `partyDps`
 - _Number_
 - Party-wide DPS.
@@ -158,6 +139,10 @@ These properties will be on each party member Object.
 ##### `playerClass`
 - _String_
 - Class of Player.
+
+##### `playerServer`
+- _String_
+- The name of the server of the player on the record.
 
 ##### `playerTotalDamage`
 - _Number_
