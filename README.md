@@ -30,13 +30,16 @@ Encounter Base {
   areaId: Number,
   bossId: Number,
   bossHp: Number,
-  server: String,
   fightDuration: Number,
-  enrageUptime: Number,
   meterName: String,
   meterVersion: Number,
+  mainPlayerName: String,
+  mainPlayerClass: String,
+  mainPlayerServer: String,
+  mainPlayerDps: Number,
   debuffUptime: [
-    {skillId: Number}
+    {skillId: Number},
+     8888888: Number (Enrage Uptime tracking)
   ],
   members: [
     {
@@ -47,6 +50,7 @@ Encounter Base {
       playerTotalDamagePercent: Number,
       playerAverageCritRate: Number,
       playerDeaths: Number,
+      playerDeathDuration: Number,
       skillLog: [
         {
           skillId: Number,
@@ -88,13 +92,8 @@ Below is the list of the object properties:
 - _Number_
 - Duration of the encounter.
  
-##### `enrageUptime`
-- _Number_
-- Uptime on boss's Enraged status throughout fight.
-
-##### `server`
-- _String_
-- The name of the server in which the encounter took place.
+##### `enrageUptime (property 8888888)`
+- Uptime on boss's Enraged status throughout fight. This is the property named 8888888 in debuffUptime array.
 
 ##### `meterName`
 - _String_
@@ -103,6 +102,22 @@ Below is the list of the object properties:
 ##### `meterVersion`
 - _Number_
 - The version of the meter.
+
+##### `mainPlayerName`
+- _String_
+- The name of the player on the record.
+
+##### `mainPlayerClass`
+- _String_
+- The class of the player on the record.
+
+##### `mainPlayerServer`
+- _String_
+- The name of the server of the player on the record.
+
+##### `mainPlayerDps`
+- _Number_
+- The DPS of the player on the record.
 
 ##### `debuffUptime`
 - _Array of Objects_
@@ -159,6 +174,10 @@ These properties will be on each party member Object.
 ##### `playerDeaths`
 - _Number_
 - Number of times player died in the encounter.
+
+##### `playerDeathDuration`
+- _Number_
+- How long the player was dead for over the course of the encounter.
 
 ##### `skillLog`
 - _Array of Objects_
