@@ -32,6 +32,7 @@ Encounter Base {
   fightDuration: Number,
   meterName: String,
   meterVersion: Number,
+  server: String, (fallback for KR/TW/JP submissions)
   partyDps: Number,
   debuffUptime: [
     {skillId: Number},
@@ -95,6 +96,11 @@ Below is the list of the object properties:
 ##### `meterVersion`
 - _Number_
 - The version of the meter.
+
+##### `server`
+- _String_
+- The string of the server of the user running the meter. Right now this is a fallback which will be used for KR/TW/JP submissions but will assume everyone in the party is from the user's server. (Doesn't work with cross-server que detection.)
+- Will be deprecated when proper detection of KR/TW/JP servers is implemented.
 
 ##### `partyDps`
 - _Number_
