@@ -31,8 +31,7 @@ Encounter Base {
   bossId: Number,
   fightDuration: Number,
   meterName: String,
-  meterVersion: Number,
-  server: String, (fallback for KR/TW/JP submissions)
+  meterVersion: String,
   partyDps: Number,
   debuffUptime: [
     {skillId: Number},
@@ -94,13 +93,8 @@ Below is the list of the object properties:
 - The name of the meter the encounter was submitted from. i.e. CasualMeter / ShinraMeter
 
 ##### `meterVersion`
-- _Number_
-- The version of the meter.
-
-##### `server`
 - _String_
-- The string of the server of the user running the meter. Right now this is a fallback which will be used for KR/TW/JP submissions but will assume everyone in the party is from the user's server. (Doesn't work with cross-server que detection.)
-- Will be deprecated when proper detection of KR/TW/JP servers is implemented.
+- The version of the meter.
 
 ##### `partyDps`
 - _Number_
@@ -149,6 +143,7 @@ These properties will be on each party member Object.
 ##### `playerServer`
 - _String_
 - The name of the server of the player on the record.
+- Falls back to server ID if name is not recognized. (KR/TW/JP servers currently)
 
 ##### `playerTotalDamage`
 - _Number_
