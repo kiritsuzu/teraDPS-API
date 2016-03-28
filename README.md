@@ -29,7 +29,6 @@ The general structure of the JSON request object should be as follows:
 Encounter Base {
   areaId: Number,
   bossId: Number,
-  bossHp: Number,
   fightDuration: Number,
   meterName: String,
   meterVersion: Number,
@@ -37,6 +36,7 @@ Encounter Base {
   mainPlayerClass: String,
   mainPlayerServer: String,
   mainPlayerDps: Number,
+  partyDps: Number,
   debuffUptime: [
     {skillId: Number},
      8888888: Number (Enrage Uptime tracking)
@@ -84,10 +84,6 @@ Below is the list of the object properties:
 - _Number_
 - The boss id in reference to database.
 
-##### `bossHp`
-- _Number_
-- Maximum HP of boss in the encounter. Used to check legitimacy of encounter on server end.
-
 ##### `fightDuration`
 - _Number_
 - Duration of the encounter.
@@ -118,6 +114,10 @@ Below is the list of the object properties:
 ##### `mainPlayerDps`
 - _Number_
 - The DPS of the player on the record.
+
+##### `partyDps`
+- _Number_
+- Party-wide DPS.
 
 ##### `debuffUptime`
 - _Array of Objects_
