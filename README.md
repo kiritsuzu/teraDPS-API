@@ -73,9 +73,8 @@ Encounter Base {
 
 # Please note: To clarify, all values MUST be stored as Strings, even numbers.
 
-Below is the list of the object properties:
-
 ## Main Encounter properties
+Below is the list of the object properties:
 
 ##### `areaId`
 - _Number_
