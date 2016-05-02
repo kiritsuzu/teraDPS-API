@@ -27,47 +27,51 @@ X-User-Id: crdChGPz6PndHvMYh
 The general structure of the JSON request object should be as follows:
 ```
 Encounter Base {
-  areaId: Number,
-  bossId: Number,
-  fightDuration: Number,
+  areaId: Number (as String),
+  bossId: Number (as String),
+  fightDuration: Number (as String),
   meterName: String,
   meterVersion: String,
-  partyDps: Number,
+  partyDps: Number (as String),
   debuffUptime: [
-    {skillId: Number},
-     8888888: Number (Enrage Uptime tracking)
+    {skillId: Number (as String)},
+     8888888: Number (as String) [Enrage Uptime tracking],
+     8888889: Number (as String) [Slaying Uptime tracking]
   ],
   members: [
     {
       playerName: String,
-      playerDPS: Number,
+      playerDPS: Number (as String),
       playerClass: String,
       playerServer: String,
-      playerTotalDamage: Number,
-      playerTotalDamagePercent: Number,
-      playerAverageCritRate: Number,
-      playerDeaths: Number,
-      playerDeathDuration: Number,
+      playerTotalDamage: Number (as String),
+      playerTotalDamagePercent: Number (as String),
+      playerAverageCritRate: Number (as String),
+      playerDeaths: Number (as String),
+      playerDeathDuration: Number (as String),
+      aggro: Number (as String),
       skillLog: [
         {
-          skillId: Number,
-          skillHits: Number,
-          skillTotalDamage: Number,
-          skillCritRate: Number,
-          skillDamagePercent: Number,
-          skillHighestCrit: Number,
-          skillLowestCrit: Number,
-          skillAverageCrit: Number,
-          skillAverageWhite: Number
+          skillId: Number (as String),
+          skillHits: Number (as String),
+          skillTotalDamage: Number (as String),
+          skillCritRate: Number (as String),
+          skillDamagePercent: Number (as String),
+          skillHighestCrit: Number (as String),
+          skillLowestCrit: Number (as String),
+          skillAverageCrit: Number (as String),
+          skillAverageWhite: Number (as String)
         }
       ],
       buffUptime: [
-        {buffId: Number}
+        {buffId: Number (as String)}
       ]
     }
   ]
 }
 ```
+
+# Please note: To clarify, all values MUST be stored as Strings, even numbers.
 
 Below is the list of the object properties:
 
@@ -164,6 +168,10 @@ These properties will be on each party member Object.
 ##### `playerDeathDuration`
 - _Number_
 - How long the player was dead for over the course of the encounter.
+
+##### `aggro`
+- _Number_
+- How long player held aggro over encounter.
 
 ##### `skillLog`
 - _Array of Objects_
